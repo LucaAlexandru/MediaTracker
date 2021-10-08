@@ -38,15 +38,15 @@
                 <th>Genre</th>
                 <th>Action</th>
             </tr>
-            {% for entry in books_data_1 %}
+            {% for entry in games_data_1 %}
             <tr>
                 <td>{{entry.game_name}}</td>
                 <td>{{entry.game_developer}}</td>
-                <td>{{entry.added_platform}}</td>
-                <td>{{entry.release_date.year}}</td>
-                <td>{{entry.rating}}</td>
-                <td>{{entry.status}}</td>
-                <td>{{entry.get_genre_display}}</td>
+                <td>{{entry.get_game_platform_display}}</td>
+                <td>{{entry.game_release_date.year}}</td>
+                <td>{{entry.game_rating}}</td>
+                <td>{{entry.game_status}}</td>
+                <td>{{entry.game_genre}}</td>
                 <td><a href="/games/delete/{{entry.id}}/">Delete</a></td>
             </tr>
             {% endfor %}

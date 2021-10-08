@@ -21,7 +21,7 @@ def add_game(request):
             return HttpResponseRedirect('not valid')
     else:
         form = GameForm()
-    return render(request, 'books/add_book.html', {'book_form': form})
+    return render(request, 'games/add_game.html', {'game_form': form})
 
 
 def game_delete(request, game_id):
