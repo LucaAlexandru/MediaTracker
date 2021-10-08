@@ -1,10 +1,55 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'base_layout.html' %}
+{% block content %}
+    <style>
+        #all_games {
+          font-family: Arial, Helvetica, sans-serif;
+          border-collapse: collapse;
+          width: 100%;
+        }
 
-</body>
-</html>
+        #all_games td, #all_games th {
+          border: 1px solid #ddd;
+          padding: 8px;
+        }
+
+        #all_games tr:nth-child(even){background-color: #f2f2f2;}
+
+        #all_games tr:hover {background-color: #ddd;}
+
+        #all_games th {
+          padding-top: 12px;
+          padding-bottom: 12px;
+          text-align: left;
+          background-color: #04AA6D;
+          color: white;
+        }
+    </style>
+    <h1>Games</h1>
+    <p><a href="/">Back to homepage.</a></p>
+    <div class="games">
+        <table id="all_games">
+            <tr>
+                <th>Name</th>
+                <th>Developer</th>
+                <th>Platform</th>
+                <th>Release date</th>
+                <th>Rating</th>
+                <th>Status</th>
+                <th>Genre</th>
+                <th>Action</th>
+            </tr>
+            {% for entry in books_data_1 %}
+            <tr>
+                <td>{{entry.game_name}}</td>
+                <td>{{entry.game_developer}}</td>
+                <td>{{entry.added_platform}}</td>
+                <td>{{entry.release_date.year}}</td>
+                <td>{{entry.rating}}</td>
+                <td>{{entry.status}}</td>
+                <td>{{entry.get_genre_display}}</td>
+                <td><a href="/games/delete/{{entry.id}}/">Delete</a></td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+{% endblock %}
