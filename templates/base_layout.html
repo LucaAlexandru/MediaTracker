@@ -11,7 +11,7 @@
             <ul>
                 {% if user.is_authenticated %}
                 <li>
-                    <form class="logout_link" action="{% url 'accounts:logout' %}" method = post>
+                    <form class="logout_link" action="{% url 'accounts:logout' %}" method="post">
                         {% csrf_token %}
                         <button type="submit">Logout</button>
                     </form>
