@@ -1,0 +1,55 @@
+{% extends 'base_layout.html' %}
+{% block content %}
+    <style>
+        #all_books {
+          font-family: Arial, Helvetica, sans-serif;
+          border-collapse: collapse;
+          width: 100%;
+        }
+
+        #all_books td, #all_books th {
+          border: 1px solid #ddd;
+          padding: 8px;
+        }
+
+        #all_books tr:nth-child(even){background-color: #f2f2f2;}
+
+        #all_books tr:hover {background-color: #ddd;}
+
+        #all_books th {
+          padding-top: 12px;
+          padding-bottom: 12px;
+          text-align: left;
+          background-color: #04AA6D;
+          color: white;
+        }
+    </style>
+    <h1>Books</h1>
+    <p><a href="/">Back to homepage.</a></p>
+    <div class="books">
+        <table id="all_books">
+            <tr>
+                <th>Name</th>
+                <th>Author</th>
+                <th>Added on</th>
+                <th>Published</th>
+                <th>Rating</th>
+                <th>Status</th>
+                <th>Genre</th>
+                <th>Action</th>
+            </tr>
+            {% for entry in books_data_1 %}
+            <tr>
+                <td>{{entry.name}}</td>
+                <td>{{entry.author}}</td>
+                <td>{{entry.added_on}}</td>
+                <td>{{entry.published.year}}</td>
+                <td>{{entry.rating}}</td>
+                <td>{{entry.status}}</td>
+                <td>{{entry.get_genre_display}}</td>
+                <td><a href="/books/delete/{{entry.id}}/">Delete</a></td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+{% endblock %}

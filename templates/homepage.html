@@ -1,0 +1,19 @@
+{% extends 'base_layout.html' %}
+{% load static %}
+{% block content %}
+<h1>Media Tracker Homepage</h1>
+    <p>Welcome! Below are links to various functions of the app.</p>
+<h2>Games</h2>
+    <p><a href="">All PC games</a></p>
+    <p><a href="">Add PC game</a></p>
+<h2>Films and shows</h2>
+    <p><a href="">All films and shows</a></p>
+    <p><a href="">Add films and shows</a></p>
+<h2>Books</h2>
+    <p><a href="books/all/">All books</a></p>
+    <p><a href="books/add_book/">Add books</a></p>
+<h2>Account functionality</h2>
+    <p><a href="accounts/signup/">Sign up</a></p>
+    <p><a href="accounts/login/">Log in</a></p>
+    <p><a href="accounts/logout/">Log out</a></p>
+{% endblock %}

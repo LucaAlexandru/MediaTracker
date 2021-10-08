@@ -1,0 +1,9 @@
+{% extends 'base_layout.html' %}
+{% block content %}
+<h1>Signup</h1>
+<form class="site_form" action="/accounts/signup/" method="post">
+    {% csrf_token %}
+    {{ user_creation_form }}
+    <input type="submit" value="Signup">
+</form>
+{% endblock %}
