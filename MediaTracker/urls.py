@@ -29,6 +29,7 @@ urlpatterns = [
     path('api-auth/', include('rest_framework.urls')),
     path('', views.homepage, name='homepage'),
     path('books/', include('books.urls')),
+    path('games/', include('games.urls')),
     path('accounts/', include('accounts.urls')),
     path('api/', include(router.urls))
 ]
