@@ -24,7 +24,13 @@ def add_film(request):
     return render(request, 'films/add_film.html', {'film_form': form})
 
 
+@login_required(login_url="/accounts/login/")
 def film_delete(request, film_id):
     film = Film.objects.get(pk=film_id)
     film.delete()
     return redirect("films:all_films")
+
+
+@login_required(login_url="/accounts/login/")
+def functionality(request):
+    pass
