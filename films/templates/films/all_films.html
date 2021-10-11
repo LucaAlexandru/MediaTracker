@@ -29,24 +29,19 @@
     <div class="films">
         <table id="all_films">
             <tr>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
+                <th>Name</th>
+                <th>Release date</th>
+                <th>Genre</th>
+                <th>Rating</th>
+                <th>Type</th>
             </tr>
-            {% for entry in games_data_1 %}
+            {% for entry in films_data_1 %}
             <tr>
-                <td>{{entry.}}</td>
-                <td>{{entry.}}</td>
-                <td>{{entry.}}</td>
-                <td>{{entry.}}</td>
-                <td>{{entry.}}</td>
-                <td>{{entry.}}</td>
-                <td>{{entry.}}</td>
+                <td>{{entry.film_name}}</td>
+                <td>{{entry.film_release_date.year}}</td>
+                <td>{{entry.get_film_genre}}</td>
+                <td>{{entry.get_film_rating_display}}</td>
+                <td>{{entry.get_film_type_display}}</td>
                 <td><a href="/films/delete/{{entry.id}}/">Delete</a></td>
             </tr>
             {% endfor %}
