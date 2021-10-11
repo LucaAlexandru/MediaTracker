@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from django.http import HttpResponseRedirect, HttpResponse
+from django.http import HttpResponseRedirect
 from games.models import Game
 from games.forms import GameForm
 from django.contrib.auth.decorators import login_required

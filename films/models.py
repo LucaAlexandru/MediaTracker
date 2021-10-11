@@ -4,7 +4,7 @@ from MediaTracker.constants import RATING_TEN, FILM_TYPE
 # Create your models here.
 
 
-class Films(models.Model):
+class Film(models.Model):
     film_name = models.CharField(max_length=100)
     film_release_date = models.DateField(null=True)
     film_genre = models.CharField(max_length=50)
