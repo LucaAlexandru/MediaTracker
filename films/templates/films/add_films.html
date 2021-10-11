@@ -1,0 +1,11 @@
+{% extends 'base_layout.html' %}
+{% block content %}
+<h1>Add game</h1>
+<p><a href="/">Back to homepage.</a></p>
+<form class="site-form" action="/films/add_film/" method="post">
+    {% csrf_token %}
+    {{ film_form.as_p }}
+    <p>Submit new game entry:</p>
+    <input type="submit" value="Add film">
+</form>
+{% endblock %}

@@ -1,0 +1,55 @@
+{% extends 'base_layout.html' %}
+{% block content %}
+    <style>
+        #all_films {
+          font-family: Arial, Helvetica, sans-serif;
+          border-collapse: collapse;
+          width: 100%;
+        }
+
+        #all_films td, #all_films th {
+          border: 1px solid #ddd;
+          padding: 8px;
+        }
+
+        #all_films tr:nth-child(even){background-color: #f2f2f2;}
+
+        #all_films tr:hover {background-color: #ddd;}
+
+        #all_films th {
+          padding-top: 12px;
+          padding-bottom: 12px;
+          text-align: left;
+          background-color: #04AA6D;
+          color: white;
+        }
+    </style>
+    <h1>Films</h1>
+    <p><a href="/">Back to homepage.</a></p>
+    <div class="films">
+        <table id="all_films">
+            <tr>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+            </tr>
+            {% for entry in games_data_1 %}
+            <tr>
+                <td>{{entry.}}</td>
+                <td>{{entry.}}</td>
+                <td>{{entry.}}</td>
+                <td>{{entry.}}</td>
+                <td>{{entry.}}</td>
+                <td>{{entry.}}</td>
+                <td>{{entry.}}</td>
+                <td><a href="/films/delete/{{entry.id}}/">Delete</a></td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+{% endblock %}
