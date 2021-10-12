@@ -34,7 +34,7 @@
                 <th>Genre</th>
                 <th>Rating</th>
                 <th>Type</th>
-                <th>Delete</th>
+                <th>Functionality</th>
             </tr>
             {% for entry in films_data_1 %}
             <tr>
@@ -43,7 +43,7 @@
                 <td>{{entry.get_film_genre}}</td>
                 <td>{{entry.get_film_rating_display}}</td>
                 <td>{{entry.get_film_type_display}}</td>
-                <td><a href="/films/delete/{{entry.id}}/">Delete</a></td>
+                <td><a href="/films/functionality/{{entry.id}}">Extra</a></td>
             </tr>
             {% endfor %}
         </table>

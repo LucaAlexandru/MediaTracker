@@ -32,5 +32,6 @@ def film_delete(request, film_id):
 
 
 @login_required(login_url="/accounts/login/")
-def functionality(request):
-    pass
+def functionality(request, film_id):
+    film = Film.objects.get(pk=film_id)
+    return render(request, 'films/functionality.html', {"film_data_2": film})
