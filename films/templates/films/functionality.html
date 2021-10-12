@@ -1,9 +1,7 @@
 {% extends 'base_layout.html' %}
 {% block content %}
 <p><a href="/">Back to homepage.</a></p>
-<h1>Film functionality</h1>
-<h2>Delete:</h2>
-<p><a href="/films/delete/{{film_data_2.id}}">"{{film_data_2.film_name}}"</a></p>
-<h2>Edit:</h2>
-<p><a href="">"{{film_data_2.film_name}}"</a></p>
+<h2>Film functionality for <em>{{film_data_2.film_name}}</em></h2>
+<p><a href="/films/delete/{{film_data_2.id}}">Delete</a></p>
+<p><a href="/films/edit/{{film_data_2.id}}">Edit</a></p>
 {% endblock %}

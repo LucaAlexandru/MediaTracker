@@ -32,6 +32,20 @@ def film_delete(request, film_id):
 
 
 @login_required(login_url="/accounts/login/")
-def functionality(request, film_id):
+def film_functionality(request, film_id):
     film = Film.objects.get(pk=film_id)
     return render(request, 'films/functionality.html', {"film_data_2": film})
+
+
+@login_required(login_url="/accounts/login/")
+def film_edit(request, film_id):
+    film = Film.objects.get(pk=film_id)
+    if request.method == 'POST':
+        form = FilmForm(request.POST, instance=film)
+        if form.is_valid():
+            form.save()
+        else:
+            return HttpResponseRedirect("Not valid, please try again.")
+    else:
+        form = FilmForm(instance=Film)
+    return render(request, 'films/edit_film.html', {'edit_form': form})
