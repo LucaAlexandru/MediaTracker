@@ -44,6 +44,7 @@ def film_edit(request, film_id):
         form = FilmForm(request.POST, instance=film)
         if form.is_valid():
             form.save()
+            return redirect("films:all_films")
         else:
             return HttpResponseRedirect("Not valid, please try again.")
     else:

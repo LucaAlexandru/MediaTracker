@@ -4,7 +4,7 @@
 <p><a href="/">Back to homepage.</a></p>
 <form class="site-form" action="/films/add_film/" method="post">
     {% csrf_token %}
-    {{ edit_film.as_p }}
+    {{ film_form.as_p }}
     <p>Submit new film entry:</p>
     <input type="submit" value="Add film">
 </form>

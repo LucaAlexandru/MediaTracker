@@ -5,8 +5,7 @@
 <p>Edit entry:</p>
 <form action="" method="post">
     {% csrf_token %}
-    {{ edit_film.as_p }}
-    <p>Submit new film entry:</p>
-    <input type="submit" value="Edit film">
+    {{ edit_form.as_p }}
+    <p>Submit new film entry:</p><input type="submit" value="Edit film">
 </form>
 {% endblock %}
