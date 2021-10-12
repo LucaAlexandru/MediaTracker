@@ -1,3 +1,5 @@
+import json
+import requests
 from django.shortcuts import render, redirect
 from django.http import HttpResponseRedirect
 from films.models import Film
@@ -50,3 +52,20 @@ def film_edit(request, film_id):
     else:
         form = FilmForm(instance=film)
     return render(request, 'films/edit_film.html', {'edit_form': form})
+
+
+def search_film(request):
+    if request.method == 'POST':
+        searched_film_name = request.POST['film_search_field']
+        url = 'https://api.themoviedb.org/3/search/movie'
+        film_dict = {"api_key": "ec3f2a41e83856f77eb678c0b98c0815",
+                     "language": "en-US",
+                     "query": searched_film_name,
+                     "page": "1",
+                     "include_adult": "false"}
+        resp = requests.get(url, film_dict)
+        wjson = json.loads(resp.content)
+        data = wjson['results'][0]
+        new_film = Film(film_name=data['original_title'], film_release_date=data['release_date'])
+        new_film.save()
+    return render(request, 'films/search_film.html', {})
