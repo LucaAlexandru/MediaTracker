@@ -48,5 +48,5 @@ def film_edit(request, film_id):
         else:
             return HttpResponseRedirect("Not valid, please try again.")
     else:
-        form = FilmForm(instance=Film)
+        form = FilmForm(instance=film)
     return render(request, 'films/edit_film.html', {'edit_form': form})
