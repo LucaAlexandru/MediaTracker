@@ -43,7 +43,11 @@
                 <td>{{entry.film_genre}}</td>
                 <td>{{entry.get_film_rating_display}}</td>
                 <td>{{entry.get_film_type_display}}</td>
-                <td><a href="/films/functionality/{{entry.id}}">Extra</a></td>
+                <td>
+                    <form action="/films/functionality/{{entry.id}}">
+                        <button type="submit">Modify</button>
+                    </form>
+                </td>
             </tr>
             {% endfor %}
         </table>

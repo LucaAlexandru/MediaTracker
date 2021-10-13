@@ -1,5 +1,5 @@
 from django import forms
-from MediaTracker.constants import STATUS_CHOICES, GENRE_CHOICES
+from books.constants import BOOK_STATUS_CHOICES, BOOK_GENRE_CHOICES
 
 book_rating = (
     ("0", "unrated"), ("1", "one"), ("2", "two"), ("3", "three"), ("4", "four"), ("5", "five")
@@ -12,5 +12,5 @@ class BookForm(forms.Form):
     new_added_on = forms.DateField(label="Added on")
     new_published = forms.DateField(label="Published")
     new_rating = forms.ChoiceField(label="Rating", choices=book_rating)
-    new_status = forms.ChoiceField(choices=STATUS_CHOICES)
-    new_genre = forms.ChoiceField(choices=GENRE_CHOICES)
+    new_status = forms.ChoiceField(choices=BOOK_STATUS_CHOICES)
+    new_genre = forms.ChoiceField(choices=BOOK_GENRE_CHOICES)
