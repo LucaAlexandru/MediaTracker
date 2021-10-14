@@ -5,7 +5,7 @@ from django.http import HttpResponseRedirect
 from films.models import Film
 from films.forms import FilmForm
 from django.contrib.auth.decorators import login_required
-from MediaTracker.secure import film_api_key
+from MediaTracker.secure_two import film_api_key
 
 
 def films_data(request):
