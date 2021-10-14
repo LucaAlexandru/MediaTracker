@@ -8,9 +8,4 @@
     <p>Submit search request:</p>
     <input type="submit" value="Search">
 </form>
-{% if request.method == 'POST' %}
-    <p>Result 1: {{ search_result_form.film_name }}</p>
-{% else %}
-    <p>Something doesn't work</p>
-{% endif %}
 {% endblock %}
