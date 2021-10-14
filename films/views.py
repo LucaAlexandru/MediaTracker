@@ -5,6 +5,7 @@ from django.http import HttpResponseRedirect
 from films.models import Film
 from films.forms import FilmForm
 from django.contrib.auth.decorators import login_required
+from MediaTracker.secure import film_api_key
 
 
 def films_data(request):
@@ -58,7 +59,7 @@ def search_film(request):
     if request.method == 'POST':
         searched_film_name = request.POST['film_search_field']
         url = 'https://api.themoviedb.org/3/search/movie'
-        film_dict = {"api_key": "ec3f2a41e83856f77eb678c0b98c0815",
+        film_dict = {"api_key": film_api_key,
                      "language": "en-US",
                      "query": searched_film_name,
                      "page": "1",
