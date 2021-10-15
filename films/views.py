@@ -66,10 +66,21 @@ def search_film(request):
                      "include_adult": "false"}
         response = requests.get(url, film_dict)
         film_dict_data = json.loads(response.content)
-        x = [0, 1, 2, 3, 4, 5]
-        extracted_data = film_dict_data['results'][x[0]]
-        result = Film(film_name=extracted_data['original_title'],
-                      film_release_date=extracted_data['release_date'])
-        result.save()
-        return render(request, 'films/search_film.html', {"search_result_form": result})
+        return render(request, 'films/search_film.html', film_dict_data)
     return render(request, 'films/search_film.html', {})
+
+
+def add_searched_film(request):
+    searched_film_name = request.GET.get("q")
+    url = 'https://api.themoviedb.org/3/search/movie'
+    film_dict = {"api_key": film_api_key,
+                 "language": "en-US",
+                 "query": searched_film_name,
+                 "page": "1",
+                 "include_adult": "false"}
+    response = requests.get(url, film_dict)
+    film_dict_data = json.loads(response.content)
+    new_film = Film(film_name=film_dict_data['results'][0]['original_title'],
+                    film_release_date=film_dict_data['results'][0]['release_date'])
+    new_film.save()
+    return render(request, 'films/add_searched_film.html', {})

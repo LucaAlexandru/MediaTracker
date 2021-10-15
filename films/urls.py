@@ -11,4 +11,5 @@ urlpatterns = [
     path('edit/<int:film_id>', views.film_edit, name="film_edit"),
     path('search_film/', views.search_film, name='film_search'),
     path('search_film_results/', views.search_film, name='film_results'),
+    path('add_searched_film/', views.add_searched_film, name='add_searched_film'),
 ]
