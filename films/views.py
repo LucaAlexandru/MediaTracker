@@ -55,6 +55,7 @@ def film_edit(request, film_id):
     return render(request, 'films/edit_film.html', {'edit_form': form})
 
 
+@login_required(login_url="/accounts/login/")
 def search_film(request):
     if request.method == 'POST':
         searched_film_name = request.POST['film_search_field']
@@ -66,10 +67,12 @@ def search_film(request):
                      "include_adult": "false"}
         response = requests.get(url, film_dict)
         film_dict_data = json.loads(response.content)
-        return render(request, 'films/search_film.html', film_dict_data)
+        context = {"film_list": film_dict_data}
+        return render(request, 'films/search_film.html', context)
     return render(request, 'films/search_film.html', {})
 
 
+@login_required(login_url="/accounts/login/")
 def add_searched_film(request):
     searched_film_name = request.GET.get("q")
     url = 'https://api.themoviedb.org/3/search/movie'

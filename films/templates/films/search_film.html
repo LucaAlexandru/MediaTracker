@@ -10,11 +10,12 @@
 </form>
 
 {% if request.method == 'POST' %}
-    <h2>Search results listed below, choose the one to add:</h2>
-    <p><a href="/films/add_searched_film/?q={{ results.0.original_title }}">{{ results.0.original_title }}</a></p>
-    <p><a href="/films/add_searched_film/?q={{ results.1.original_title }}">{{ results.1.original_title }}</a></p>
-    <p><a href="/films/add_searched_film/?q={{ results.2.original_title }}">{{ results.2.original_title }}</a></p>
-    <p><a href="/films/add_searched_film/?q={{ results.3.original_title }}">{{ results.3.original_title }}</a></p>
-    <p><a href="/films/add_searched_film/?q={{ results.4.original_title }}">{{ results.4.original_title }}</a></p>
+    <h2>Search results listed below, select one to add:</h2>
+    <ul>
+        {% for results in film_list.results %}
+        <li><a href="/films/add_searched_film/?q={{ results.original_title }}">{{ results.original_title }}</a></li>
+        {% endfor %}
+    </ul>
+
 {% endif %}
 {% endblock %}
