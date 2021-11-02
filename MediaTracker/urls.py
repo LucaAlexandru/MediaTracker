@@ -19,9 +19,13 @@ from . import views
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from rest_framework import routers
 from books.api_views import BookViewSet
+from games.api_views import GameViewSet
+from films.api_views import FilmViewSet
 
 router = routers.DefaultRouter()
 router.register("books", BookViewSet)
+router.register("games", GameViewSet)
+router.register("movies", FilmViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),

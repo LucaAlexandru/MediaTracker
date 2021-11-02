@@ -1,3 +1,7 @@
 
 MediaTracker/secure.py
 MediaTracker/secure_two.py
+*.pyc
+Lib/
+pyvenv.cfg
+Scripts/
