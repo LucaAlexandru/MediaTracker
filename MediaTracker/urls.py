@@ -25,7 +25,7 @@ from films.api_views import FilmViewSet
 router = routers.DefaultRouter()
 router.register("books", BookViewSet)
 router.register("games", GameViewSet)
-router.register("movies", FilmViewSet)
+router.register("films", FilmViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
